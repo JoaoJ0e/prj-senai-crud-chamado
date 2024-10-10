@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.professorclaytonandrade.sistemaservicosjavafx.controller.StartViewController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Cadastro">
+            <items>
+              <MenuItem fx:id="menuItemCadastroTecnico" mnemonicParsing="false" onAction="#mostrarCadastroTecnico" text="Cadastro Ténico" />
+                  <MenuItem fx:id="itemMenuCadastroCliente" mnemonicParsing="false" text="Cadastro Cliente" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Consulta">
+            <items>
+              <MenuItem fx:id="itemMenuConsultaTecnico" mnemonicParsing="false" onAction="#mostrarConsultaTecnico" text="Consulta Técnico" />
+                  <MenuItem fx:id="itemMenuConsultaCliente" mnemonicParsing="false" text="Consulta Cliente" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Ordem de Serviço">
+            <items>
+              <MenuItem fx:id="menuItemChamado" mnemonicParsing="false" text="Nova Chamada" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="anchorPane" prefHeight="377.0" prefWidth="600.0" />
+   </children>
+</VBox>

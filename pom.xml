@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                br.com.professorclaytonandrade.sistemaservicosjavafx/br.com.professorclaytonandrade.sistemaservicosjavafx.HelloApplication
+                                br.com.professorclaytonandrade.sistemaservicosjavafx/br.com.professorclaytonandrade.sistemaservicosjavafx.StartApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
