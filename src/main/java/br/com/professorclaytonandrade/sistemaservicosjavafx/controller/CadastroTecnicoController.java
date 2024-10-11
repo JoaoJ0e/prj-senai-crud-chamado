@@ -1,4 +1,4 @@
-package br.com.professorclaytonandrade.sistemaservicojavafx.controller;
+package br.com.professorclaytonandrade.sistemaservicosjavafx.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
