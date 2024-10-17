@@ -1,68 +1,31 @@
 package br.com.professorclaytonandrade.sistemaservicosjavafx.model;
 
+import br.com.professorclaytonandrade.sistemaservicosjavafx.dto.TecnicoDto;
+
 import java.time.LocalDate;
 
-public class Tecnico {
-    private Integer id;
-    private String nome;
-    private String email;
-    private String senha;
-    private String cpf;
+public class Tecnico extends Pessoa{
     private Double salario;
-    private LocalDate dataCriacao = LocalDate.now();
 
     public Tecnico(){
-
+        super();
     }
 
-    public Tecnico(Integer id, String nome, String email, String senha, String cpf, Double salario, LocalDate dataCriacao) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.cpf = cpf;
+    public Tecnico(Long id, String nome, String email, String senha, String cpf, Double salario, LocalDate dataCriacao) {
+        super(id, nome, email, senha, cpf, dataCriacao);
         this.salario = salario;
-        this.dataCriacao = dataCriacao;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public Tecnico(TecnicoDto tecnicoDto) {
+        super(
+            (tecnicoDto.getId() != null) ? tecnicoDto.getId() : null,
+            tecnicoDto.getNome(),
+            tecnicoDto.getEmail(),
+            tecnicoDto.getSenha(),
+            tecnicoDto.getCpf(),
+            tecnicoDto.getDataCriacao()
+        );
+        this.salario = tecnicoDto.getSalario();
     }
 
     public Double getSalario() {
@@ -71,13 +34,5 @@ public class Tecnico {
 
     public void setSalario(Double salario) {
         this.salario = salario;
-    }
-
-    public LocalDate getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(LocalDate dataCriacao) {
-        this.dataCriacao = dataCriacao;
     }
 }

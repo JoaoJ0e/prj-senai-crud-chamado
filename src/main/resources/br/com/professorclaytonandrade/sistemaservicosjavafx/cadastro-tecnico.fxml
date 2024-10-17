@@ -14,9 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="372.0" prefWidth="519.0"
-            xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="br.com.professorclaytonandrade.sistemaservicosjavafx.controller.CadastroTecnicoController">
+<AnchorPane prefHeight="372.0" prefWidth="519.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.professorclaytonandrade.sistemaservicosjavafx.controller.CadastroTecnicoController">
     <children>
         <VBox alignment="CENTER" prefHeight="341.0" prefWidth="500.0" spacing="10" AnchorPane.bottomAnchor="21.0" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="10">
             <!-- Title Section -->
@@ -53,21 +51,29 @@
 
                 <Label text="Data de Criação:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
                 <DatePicker fx:id="dataCriacaoField" editable="false" prefHeight="25.0" prefWidth="376.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                <columnConstraints>
-                    <ColumnConstraints maxWidth="99.0" minWidth="81.0" prefWidth="99.0" />
-                    <ColumnConstraints maxWidth="369.0" minWidth="351.0" prefWidth="351.0" />
-                </columnConstraints>
+            <columnConstraints>
+               <ColumnConstraints maxWidth="99.0" minWidth="81.0" prefWidth="99.0" />
+               <ColumnConstraints maxWidth="369.0" minWidth="351.0" prefWidth="351.0" />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
             </GridPane>
             <!-- Buttons Section -->
             <HBox alignment="BOTTOM_RIGHT" prefHeight="25.0" prefWidth="431.0" spacing="10">
-                <Button fx:id="cancelarButton" prefHeight="25.0" prefWidth="71.0" text="Cancelar" textAlignment="CENTER">
-                    <HBox.margin>
-                        <Insets right="5.0" />
-                    </HBox.margin></Button>
-                <Button fx:id="salvarButton" prefHeight="25.0" prefWidth="56.0" text="Salvar" textAlignment="CENTER">
-                    <HBox.margin>
-                        <Insets right="15.0" />
-                    </HBox.margin></Button>
+                <Button fx:id="cancelarButton" onAction="#cancelar" prefHeight="25.0" prefWidth="71.0" text="Cancelar" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin></Button>
+                <Button fx:id="salvarButton" onAction="#salvar" prefHeight="25.0" prefWidth="56.0" text="Salvar" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin></Button>
             </HBox>
         </VBox>
     </children>
