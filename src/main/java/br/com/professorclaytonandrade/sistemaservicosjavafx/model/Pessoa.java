@@ -14,13 +14,12 @@ public abstract class Pessoa {
 
     }
 
-    public Pessoa(Long id, String nome, String email, String senha, String cpf, LocalDate dataCriacao) {
+    public Pessoa(Long id, String nome, String email, String senha, String cpf) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.cpf = cpf;
-        this.dataCriacao = dataCriacao;
     }
 
     public Long getId() {

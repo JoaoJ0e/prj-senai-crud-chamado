@@ -1,8 +1,8 @@
 package br.com.professorclaytonandrade.sistemaservicosjavafx.controller;
 
 
-import br.com.professorclaytonandrade.sistemaservicosjavafx.dto.TecnicoDto;
-import br.com.professorclaytonandrade.sistemaservicosjavafx.service.TecnicoService;
+import br.com.professorclaytonandrade.sistemaservicosjavafx.dto.ClienteDto;
+import br.com.professorclaytonandrade.sistemaservicosjavafx.service.ClienteService;
 import br.com.professorclaytonandrade.sistemaservicosjavafx.util.Mensagens;
 import br.com.professorclaytonandrade.sistemaservicosjavafx.util.Util;
 import javafx.beans.value.ChangeListener;
@@ -14,8 +14,8 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 
-public class CadastroTecnicoController {
-    private static final Logger logger = LoggerFactory.getLogger(TecnicoService.class);
+public class CadastroClienteController {
+    private static final Logger logger = LoggerFactory.getLogger(ClienteService.class);
 
     @FXML
     private Button cancelarButton;
@@ -39,17 +39,14 @@ public class CadastroTecnicoController {
     private TextField nomeField;
 
     @FXML
-    private TextField salarioField;
-
-    @FXML
     private PasswordField senhaField;
 
-    private TecnicoService tecnicoService;
+    private ClienteService clienteService;
 
     private boolean edicao =  false;
 
-    public CadastroTecnicoController() {
-        this.tecnicoService = new TecnicoService(); // Inicializando o serviço;
+    public CadastroClienteController() {
+        this.clienteService = new ClienteService(); // Inicializando o serviço;
     }
 
     @FXML
@@ -63,7 +60,6 @@ public class CadastroTecnicoController {
         emailField.textProperty().addListener(campoListener);
         senhaField.textProperty().addListener(campoListener);
         cpfField.textProperty().addListener(campoListener);
-        salarioField.textProperty().addListener(campoListener);
 
         dataCriacaoField.setValue(LocalDate.now());
         dataCriacaoField.setDisable(true);
@@ -93,25 +89,23 @@ public class CadastroTecnicoController {
 
     private void salvarAlteracoes() {
         Long id = !idField.getText().trim().isEmpty() ? Long.valueOf(idField.getText().trim()) : null;
-        Double salario = !salarioField.getText().isEmpty() ? Double.valueOf(salarioField.getText().trim()) : null;
-        TecnicoDto tecnicoDto = new TecnicoDto(id, nomeField.getText().trim(), emailField.getText().trim(), senhaField.getText().trim(), cpfField.getText().trim(), salario);
-        if (tecnicoDto.getId() == null) {
-            tecnicoService.criar(tecnicoDto); // Adiciona novo técnico
+        ClienteDto clienteDto = new ClienteDto(id, nomeField.getText().trim(), emailField.getText().trim(), senhaField.getText().trim(), cpfField.getText().trim());
+        if (clienteDto.getId() == null) {
+            clienteService.criar(clienteDto); // Adiciona novo cliente
         } else {
-            tecnicoService.atualizar(tecnicoDto); // Atualiza técnico existente
+            clienteService.atualizar(clienteDto); // Atualiza cliente existente
             edicao = true;
         }
     }
 
-    public void setDado(TecnicoDto tecnicoDto) {
-        if (tecnicoDto != null) {
-            idField.setText(String.valueOf(tecnicoDto.getId()));
-            nomeField.setText(tecnicoDto.getNome());
-            emailField.setText(tecnicoDto.getEmail());
-            senhaField.setText(tecnicoDto.getSenha());
-            cpfField.setText(tecnicoDto.getCpf());
-            salarioField.setText(String.valueOf(tecnicoDto.getSalario()));
-            dataCriacaoField.setValue(tecnicoDto.getDataCriacao());
+    public void setDado(ClienteDto clienteDto) {
+        if (clienteDto != null) {
+            idField.setText(String.valueOf(clienteDto.getId()));
+            nomeField.setText(clienteDto.getNome());
+            emailField.setText(clienteDto.getEmail());
+            senhaField.setText(clienteDto.getSenha());
+            cpfField.setText(clienteDto.getCpf());
+            dataCriacaoField.setValue(clienteDto.getDataCriacao());
         }
     }
 
@@ -122,7 +116,6 @@ public class CadastroTecnicoController {
         emailField.clear();
         senhaField.clear();
         cpfField.clear();
-        salarioField.clear();
         dataCriacaoField.setValue(null);
     }
 
@@ -131,7 +124,6 @@ public class CadastroTecnicoController {
                 !emailField.getText().trim().isEmpty() &&
                 !senhaField.getText().trim().isEmpty() &&
                 !cpfField.getText().trim().isEmpty() &&
-                !salarioField.getText().trim().isEmpty() &&
                 dataCriacaoField.getValue() != null;
     }
 

@@ -1,39 +1,36 @@
 package br.com.professorclaytonandrade.sistemaservicosjavafx.dto;
 
-import br.com.professorclaytonandrade.sistemaservicosjavafx.model.Tecnico;
+import br.com.professorclaytonandrade.sistemaservicosjavafx.model.Cliente;
 
 import java.time.LocalDate;
 
-public class TecnicoDto {
+public class ClienteDto {
 
     private Long id;
     private String nome;
     private String email;
     private String senha;
     private String cpf;
-    private Double salario;
     private LocalDate dataCriacao = LocalDate.now();
 
 
-    public TecnicoDto(Long id, String nome, String email, String senha, String cpf, Double salario) {
-        validarCampos(nome, email, senha, cpf, salario);
+    public ClienteDto(Long id, String nome, String email, String senha, String cpf) {
+        validarCampos(nome, email, senha, cpf);
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.cpf = cpf;
-        this.salario = salario;
     }
 
-    public TecnicoDto(Tecnico tecnico) {
-        validarCampos(tecnico.getNome(), tecnico.getEmail(), tecnico.getSenha(), tecnico.getCpf(), tecnico.getSalario());
-        this.id = tecnico.getId();
-        this.nome = tecnico.getNome();
-        this.email = tecnico.getEmail();
-        this.senha = tecnico.getSenha();
-        this.cpf = tecnico.getCpf();
-        this.salario = tecnico.getSalario();
-        this.dataCriacao = tecnico.getDataCriacao();
+    public ClienteDto(Cliente cliente) {
+        validarCampos(cliente.getNome(), cliente.getEmail(), cliente.getSenha(), cliente.getCpf());
+        this.id = cliente.getId();
+        this.nome = cliente.getNome();
+        this.email = cliente.getEmail();
+        this.senha = cliente.getSenha();
+        this.cpf = cliente.getCpf();
+        this.dataCriacao = cliente.getDataCriacao();
     }
 
     public Long getId() {
@@ -80,14 +77,6 @@ public class TecnicoDto {
         this.cpf = cpf;
     }
 
-    public Double getSalario() {
-        return salario;
-    }
-
-    public void setSalario(Double salario) {
-        this.salario = salario;
-    }
-
     public LocalDate getDataCriacao() {
         return dataCriacao;
     }
@@ -128,19 +117,10 @@ public class TecnicoDto {
         }
     }
 
-    private static void validarSalario(Double salario) {
-        if (salario == null) {
-            throw new IllegalArgumentException("O salário não pode ser nulo");
-        } else if (salario < 0) {
-            throw new IllegalArgumentException("O salário deve ser maior que zero");
-        }
-    }
-
-    private static void validarCampos(String nome, String email, String senha, String cpf, Double salario) {
+    private static void validarCampos(String nome, String email, String senha, String cpf) {
         validarNome(nome);
         validarEmail(email);
         validarSenha(senha);
         validarCpf(cpf);
-        validarSalario(salario);
     }
 }

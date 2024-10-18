@@ -11,8 +11,8 @@ public class Tecnico extends Pessoa{
         super();
     }
 
-    public Tecnico(Long id, String nome, String email, String senha, String cpf, Double salario, LocalDate dataCriacao) {
-        super(id, nome, email, senha, cpf, dataCriacao);
+    public Tecnico(Long id, String nome, String email, String senha, String cpf, Double salario) {
+        super(id, nome, email, senha, cpf);
         this.salario = salario;
     }
 
@@ -22,9 +22,9 @@ public class Tecnico extends Pessoa{
             tecnicoDto.getNome(),
             tecnicoDto.getEmail(),
             tecnicoDto.getSenha(),
-            tecnicoDto.getCpf(),
-            tecnicoDto.getDataCriacao()
+            tecnicoDto.getCpf()
         );
+        this.dataCriacao = tecnicoDto.getDataCriacao();
         this.salario = tecnicoDto.getSalario();
     }
 
