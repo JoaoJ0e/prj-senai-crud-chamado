@@ -42,6 +42,16 @@ public class StartViewController {
         Util.janelaModal(globalAnchorPane, "consulta-cliente.fxml", "Consulta Cliente");
     }
 
+    @FXML
+    public void mostrarCadastroOrdemServico() throws IOException {
+        Util.janelaModal(globalAnchorPane, "cadastro-ordem-servico.fxml", "Cadastro de Ordem de Serviço");
+    }
+
+    @FXML
+    public void mostrarConsultaOrdemServico() throws IOException {
+        Util.janelaModal(globalAnchorPane, "consulta-ordem-servico.fxml", "Consulta de Ordens de Serviço");
+    }
+
     public static <T> boolean mostrarTelaEditar(String telaEdicao, String tituloTela, T objeto, Object controller) throws IOException {
         return Util.janelaModalComDados(globalAnchorPane, telaEdicao, tituloTela, objeto, controller);
     }
