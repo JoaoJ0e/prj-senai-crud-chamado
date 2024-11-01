@@ -1,9 +1,13 @@
-CREATE TABLE ordem_servico (
-    id INT NOT NULL AUTO_INCREMENT  PRIMARY KEY,
+CREATE TABLE chamado (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+    observacoes TEXT,
+    prioridade INT NOT NULL,
+    status INT NOT NULL,
     tecnico_id BIGINT NOT NULL,
     cliente_id BIGINT NOT NULL,
-    valor NUMERIC(10, 2),
-    data_criacao DATE NOT NULL,
-    CONSTRAINT fk_ordem_servico_tecnico FOREIGN KEY (tecnico_id) REFERENCES tecnico (id),
-    CONSTRAINT fk_ordem_servico_cliente FOREIGN KEY (cliente_id) REFERENCES cliente (id)
+    data_abertura DATE NOT NULL,
+    data_fechamento DATE,
+    CONSTRAINT fk_chamado_tecnico FOREIGN KEY (tecnico_id) REFERENCES tecnico (id),
+    CONSTRAINT fk_chamado_cliente FOREIGN KEY (cliente_id) REFERENCES cliente (id)
 );

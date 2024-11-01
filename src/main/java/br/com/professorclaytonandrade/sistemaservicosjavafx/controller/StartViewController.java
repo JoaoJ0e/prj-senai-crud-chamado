@@ -2,9 +2,7 @@ package br.com.professorclaytonandrade.sistemaservicosjavafx.controller;
 
 import br.com.professorclaytonandrade.sistemaservicosjavafx.util.Util;
 import javafx.fxml.FXML;
-
 import javafx.scene.layout.AnchorPane;
-
 import java.io.IOException;
 
 public class StartViewController {
@@ -19,7 +17,7 @@ public class StartViewController {
 
     @FXML
     public void initialize() {
-        globalAnchorPane = anchorPane; // Armazenar referência do AnchorPane
+        globalAnchorPane = anchorPane;
     }
 
     @FXML
@@ -43,13 +41,13 @@ public class StartViewController {
     }
 
     @FXML
-    public void mostrarCadastroOrdemServico() throws IOException {
-        Util.janelaModal(globalAnchorPane, "cadastro-ordem-servico.fxml", "Cadastro de Ordem de Serviço");
+    public void mostrarCadastroChamado() throws IOException {
+        Util.janelaModal(globalAnchorPane, "cadastro-chamado.fxml", "Cadastro de Chamado");
     }
 
     @FXML
-    public void mostrarConsultaOrdemServico() throws IOException {
-        Util.janelaModal(globalAnchorPane, "consulta-ordem-servico.fxml", "Consulta de Ordens de Serviço");
+    public void mostrarConsultaChamado() throws IOException {
+        Util.janelaModal(globalAnchorPane, "consulta-chamado.fxml", "Consulta de Chamados");
     }
 
     public static <T> boolean mostrarTelaEditar(String telaEdicao, String tituloTela, T objeto, Object controller) throws IOException {
